@@ -1,5 +1,7 @@
 //This code is for the UI!
 
+//Old demo code
+
 // var TodoList = React.createClass({
 //   render: function() {
 //     var createItem = function(itemText) {
@@ -36,9 +38,6 @@
 //   }
 // });
 
-
-//There's probably a better way to do this...
-
 var UI = React.createClass({
 
 
@@ -55,23 +54,24 @@ var UI = React.createClass({
   render: function() {
     return(
       <div>
-
-        <h5>
-          <form onSubmit={this.handleRent}>
-            <h1><button>{'Rent a Bike'}</button></h1>
-          </form>
-        </h5>
-
-        <form onSubmit={this.handleInformation}>
-          <h1><button>{'Information'}</button></h1>
-        </form>
-
-
+        <table>
+          <tr>
+            <td>
+              <form onSubmit={this.handleRent}>
+                <h1><button>{'Rent a Bike'}</button></h1>
+              </form>
+            </td>
+            <td>
+              <form onSubmit={this.handleInformation}>
+                <h1><button>{'Information'}</button></h1>
+              </form>
+            </td>
+          </tr>
+        </table>
       </div>
     );
   }
 });
-
 
 React.render(
   <UI />,

@@ -1,7 +1,5 @@
 //This code is for the UI!
 
-//Old demo code
-
 // var TodoList = React.createClass({
 //   render: function() {
 //     var createItem = function(itemText) {
@@ -38,6 +36,9 @@
 //   }
 // });
 
+
+//There's probably a better way to do this...
+
 var UI = React.createClass({displayName: "UI",
 
 
@@ -53,6 +54,7 @@ var UI = React.createClass({displayName: "UI",
 
   render: function() {
     return(
+      React.createElement("h1", null, 
       React.createElement("div", null, 
         React.createElement("table", null, 
           React.createElement("tr", null, 
@@ -68,6 +70,7 @@ var UI = React.createClass({displayName: "UI",
             )
           )
         )
+      )
       )
     );
   }
