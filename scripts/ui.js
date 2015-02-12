@@ -13,6 +13,16 @@ var UI = React.createClass({
 
   //TODO: Add the other 4 buttons & improve styling!
 
+ //TODO: Add a "message box" in the middle of the screen to display messages to the user.  Perhaps in the middle of the table?
+
+ /*
+
+ |[]          []|
+ |[] messages []|
+ |[]          []|
+
+ */
+
   handleInformation: function(e){
     e.preventDefault();
     window.alert("You requested information!");
