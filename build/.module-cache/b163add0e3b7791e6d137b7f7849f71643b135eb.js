@@ -36,9 +36,6 @@
 //   }
 // });
 
-
-//There's probably a better way to do this...
-
 var UI = React.createClass({displayName: "UI",
 
 

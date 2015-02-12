@@ -26,31 +26,21 @@ code {
   padding: 0px 5px;
 }
 
+h5 {
+  align: center
+}
+
 h1, h2, h3, h4 {
   font-weight: bold;
   margin: 0 0 15px;
-  padding: 0;
+  padding: 20px;
 }
 
 h1 {
-  border-bottom: 1px solid #ddd;
   font-size: 2.5em;
   font-weight: bold;
   margin: 0 0 15px;
   padding: 0;
-}
-
-h2 {
-  border-bottom: 1px solid #eee;
-  font-size: 2em;
-}
-
-h3 {
-  font-size: 1.5em;
-}
-
-h4 {
-  font-size: 1.2em;
 }
 
 p, ul {

@@ -36,37 +36,21 @@
 //   }
 // });
 
-
-//There's probably a better way to do this...
-
 var UI = React.createClass({displayName: "UI",
 
 
-  handleRent: function(e) {
+  handleSubmit: function(e) {
     e.preventDefault();
     window.alert("You rented a bike!");
-  },
-
-  handleInformation: function(e){
-    e.preventDefault();
-    window.alert("You requested information!");
   },
 
   render: function() {
     return(
       React.createElement("div", null, 
-
-        React.createElement("h5", null, 
-          React.createElement("form", {onSubmit: this.handleRent}, 
-            React.createElement("h1", null, React.createElement("button", null, 'Rent a Bike'))
-          )
-        ), 
-
-        React.createElement("form", {onSubmit: this.handleInformation}, 
-          React.createElement("h1", null, React.createElement("button", null, 'Information'))
+        React.createElement("table", {onSubmit: this.handleSubmit}, 
+          React.createElement("button", null, 'Rent a Bike'), 
+          React.createElement("button", null, 'Information')
         )
-
-
       )
     );
   }
