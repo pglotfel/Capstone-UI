@@ -40,11 +40,14 @@
 
 var UI = React.createClass({
 
+  //Function for renting.  Implement something more intelligent in the future.
 
   handleRent: function(e) {
     e.preventDefault();
     window.alert("You rented a bike!");
   },
+
+  //Function for information.  Implement something more intelligent in the future.
 
   handleInformation: function(e){
     e.preventDefault();
