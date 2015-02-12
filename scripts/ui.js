@@ -11,6 +11,8 @@ var UI = React.createClass({
 
   //Function for information.  Implement something more intelligent in the future.
 
+  //TODO: Add the other 4 buttons & improve styling!
+
   handleInformation: function(e){
     e.preventDefault();
     window.alert("You requested information!");
