@@ -23,11 +23,11 @@ var CommentList = React.createClass({displayName: "CommentList",
   }
 });
 
-var CommentForm = React.createClass({displayName: "CommentForm",
+var CommentForst = React.createClass({displayName: "CommentForst",
   render: function() {
     return (
       React.createElement("div", {className: "commentForm"}, 
-        "Hello, world! I am a CommentForm."
+        "Hello, world!  I am a CommentForm."
       )
     );
   }

@@ -16,18 +16,18 @@ var CommentList = React.createClass({displayName: "CommentList",
   render: function() {
     return (
       React.createElement("div", {className: "commentList"}, 
-        React.createElement(Comment, {author: "Pete Hunt"}, "This is one comment"), 
-        React.createElement(Comment, {author: "Jordan Walke"}, "This is *another* comment")
+        React.createElement(Comment, {author: "Pete Hunt"}, "This is one comment "), 
+        React.createElement(Comment, {author: "Paul Glotfelter"}, "This is *another* comment")
       )
     );
   }
 });
 
-var CommentForm = React.createClass({displayName: "CommentForm",
+var CommentForst = React.createClass({displayName: "CommentForst",
   render: function() {
     return (
       React.createElement("div", {className: "commentForm"}, 
-        "Hello, world! I am a CommentForm."
+        "Hello, world!  I am a CommentForm."
       )
     );
   }
