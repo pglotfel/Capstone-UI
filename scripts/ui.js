@@ -4,7 +4,7 @@ var UI = React.createClass({
 
  //TODO: improve styling!
 
- //TODO: Add a "message box" in the middle of the screen to display messages to the user.  Perhaps in the middle of the table?
+ //TODO: Change message box text to use props and state from react!  Probably have to make a comment area class.
 
  /*
 
@@ -19,28 +19,28 @@ var UI = React.createClass({
 
    handleRent: function(e) {
      e.preventDefault();
-     window.alert("You rented a bike!");
+     document.getElementById('textArea').value = 'You rented a bike!';
    },
 
    //Function for information.  Implement something more intelligent in the future.
 
    handleInformation: function(e){
      e.preventDefault();
-     window.alert("You requested information!");
+     document.getElementById('textArea').value = 'You requested information!';
    },
 
    //''
 
    handleChargeCard: function(e){
      e.preventDefault();
-     window.alert("You charged a card!");
+     document.getElementById('textArea').value = 'You charged a card!';
    },
 
    //''
 
    handleGetCard: function(e){
      e.preventDefault();
-     window.alert("You got a card!");
+     document.getElementById('textArea').value = 'You got a card!';
    },
 
    render: function() {
@@ -69,8 +69,8 @@ var UI = React.createClass({
             </td>
             <td id="center">
               <div id="center">
-                <textarea disabled readOnly>
-                  {'Text here!'}
+                <textarea id="textArea" disabled readOnly>
+                  {""}
                 </textarea>
               </div>
             </td>

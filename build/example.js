@@ -1,10 +1,13 @@
+var text = "Text here!";
+
+
 var Comment = React.createClass({displayName: "Comment",
   render: function() {
     return (
       React.createElement("div", {className: "comment"}, 
-        React.createElement("h2", {className: "commentAuthor"}, 
+        React.createElement("h2", {className: "commentAuthor"},
           this.props.author
-        ), 
+        ),
         this.props.children
       )
     );
@@ -15,8 +18,8 @@ var Comment = React.createClass({displayName: "Comment",
 var CommentList = React.createClass({displayName: "CommentList",
   render: function() {
     return (
-      React.createElement("div", {className: "commentList"}, 
-        React.createElement(Comment, {author: "Pete Hunt"}, "This is one comment"), 
+      React.createElement("div", {className: "commentList"},
+        React.createElement(Comment, {author: "Pete Hunt"}, "This is one comment"),
         React.createElement(Comment, {author: "Jordan Walke"}, "This is *another* comment")
       )
     );
@@ -26,7 +29,7 @@ var CommentList = React.createClass({displayName: "CommentList",
 var CommentForm = React.createClass({displayName: "CommentForm",
   render: function() {
     return (
-      React.createElement("div", {className: "commentForm"}, 
+      React.createElement("div", {className: "commentForm"},
         "Hello, world! I am a CommentForm."
       )
     );
@@ -39,9 +42,9 @@ var CommentForm = React.createClass({displayName: "CommentForm",
 var CommentBox = React.createClass({displayName: "CommentBox",
   render: function() {
     return (
-      React.createElement("div", {className: "commentBox"}, 
-        React.createElement("h1", null, "Comments"), 
-        React.createElement(CommentList, null), 
+      React.createElement("div", {className: "commentBox"},
+        React.createElement("h1", null, "Comments"),
+        React.createElement(CommentList, null),
         React.createElement(CommentForm, null)
       )
     );
