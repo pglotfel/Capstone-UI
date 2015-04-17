@@ -1,3 +1,43 @@
+// var io = require('socket.io')();
+//
+// var socket;
+//
+// io.on('connection', function(s) {
+//   socket = s;
+//  });
+
+var Window = React.createClass({displayName: "Window",
+
+  getInitialState: function() {
+    return {display: "initial"};
+  },
+
+  render : function() {
+
+    var renderWindow = function(state) {
+      if(state == "default") {
+        return (
+          React.createElement("textarea", {id: "textArea", disabled: true, readOnly: true}, 
+            "default"
+          )
+        );
+      } else {
+        return (
+          React.createElement("textarea", {id: "textArea", disabled: true, readOnly: true}, 
+            "initial"
+          )
+        );
+      }
+    };
+
+    return (
+      React.createElement("div", {class: "window"}, 
+          renderWindow(this.state.display)
+      )
+    );
+  }
+});
+
 //This code is for the UI!
 
 var UI = React.createClass({displayName: "UI",
@@ -7,40 +47,43 @@ var UI = React.createClass({displayName: "UI",
  //TODO: Change message box text to use props and state from react!  Probably have to make a comment area class.
 
  /*
-
  |[]          []|
  |[] messages []|
  |[]          []|
-
  */
+
+   getInitialState: function() {
+      return {display: "initial"};
+   },
 
 
    //Function for renting.  Implement something more intelligent in the future.
 
    handleRent: function(e) {
      e.preventDefault();
-     document.getElementById('textArea').value = 'You rented a bike!';
+     this.setState({display: "default"});
+     //document.getElementById('textArea').value = 'You rented a bike!';
    },
 
    //Function for information.  Implement something more intelligent in the future.
 
    handleInformation: function(e){
      e.preventDefault();
-     document.getElementById('textArea').value = 'You requested information!';
+     //document.getElementById('textArea').value = 'You requested information!';
    },
 
    //''
 
    handleChargeCard: function(e){
      e.preventDefault();
-     document.getElementById('textArea').value = 'You charged a card!';
+    // document.getElementById('textArea').value = 'You charged a card!';
    },
 
    //''
 
    handleGetCard: function(e){
      e.preventDefault();
-     document.getElementById('textArea').value = 'You got a card!';
+     //document.getElementById('textArea').value = 'You got a card!';
    },
 
    render: function() {
@@ -68,11 +111,7 @@ var UI = React.createClass({displayName: "UI",
               )
             ), 
             React.createElement("td", {id: "center"}, 
-              React.createElement("div", {id: "center"}, 
-                React.createElement("textarea", {id: "textArea", disabled: true, readOnly: true}, 
-                  ""
-                )
-              )
+              React.createElement(Window, null)
             ), 
             React.createElement("td", {id: "right"}, 
               React.createElement("form", {onSubmit: this.handleGetCard}, 
