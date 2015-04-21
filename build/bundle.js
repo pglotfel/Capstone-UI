@@ -64,6 +64,7 @@ process.umask = function() { return 0; };
 var Halogen = require('halogen');
 
 var Example = React.createClass({displayName: "Example",
+
     render: function() {
 
         // try change me to a custom color like "red" or "#000000"

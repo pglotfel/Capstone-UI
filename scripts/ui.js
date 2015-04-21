@@ -3,6 +3,7 @@
 var Halogen = require('halogen');
 
 var Example = React.createClass({
+
     render: function() {
 
         // try change me to a custom color like "red" or "#000000"
