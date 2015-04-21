@@ -38,3 +38,4 @@ Icon
 
 #Ignore build files
 /build/.module-cache
+/node_modules
