@@ -1,66 +1,14 @@
 
 
-var Halogen = require('halogen');
+var Loader = require('halogen/BounceLoader');
+var React = require('react');
 
 var Example = React.createClass({displayName: "Example",
-
-    render: function() {
-
-        // try change me to a custom color like "red" or "#000000"
-        var color = '#4DAF7C';
-
-        var style = {
-            display: '-webkit-flex',
-            display: 'flex',
-            webkitFlex: '0 1 auto',
-            flex: '0 1 auto',
-            webkitFlexDirection: 'column',
-            flexDirection: 'column',
-            webkitFlexGrow: 1,
-            flexGrow: 1,
-            webkitFlexShrink: 0,
-            flexShrink: 0,
-            webkitFlexBasis: '25%',
-            flexBasis: '25%',
-            maxWidth: '25%',
-            height: '200px',
-            webkitAlignItems: 'center',
-            alignItems: 'center',
-            webkitJustifyContent: 'center',
-            justifyContent: 'center'
-        };
-
-        return (
-            React.createElement("div", {style: {
-                boxSizing: 'border-box',
-                display: '-webkit-flex',
-                display: 'flex',
-                webkitFlex: '0 1 auto',
-                flex: '0 1 auto',
-                webkitFlexDirection: 'row',
-                flexDirection: 'row',
-                webkitFlexWrap: 'wrap',
-                flexWrap: 'wrap'
-            }}, 
-                React.createElement("div", {style: style}, React.createElement(Halogen.PulseLoader, {color: color})), 
-                React.createElement("div", {style: style}, React.createElement(Halogen.GridLoader, {color: color})), 
-                React.createElement("div", {style: style}, React.createElement(Halogen.ClipLoader, {color: color})), 
-                React.createElement("div", {style: style}, React.createElement(Halogen.RiseLoader, {color: color})), 
-                React.createElement("div", {style: style}, React.createElement(Halogen.BeatLoader, {color: color})), 
-                React.createElement("div", {style: style}, React.createElement(Halogen.SyncLoader, {color: color})), 
-                React.createElement("div", {style: style}, React.createElement(Halogen.RotateLoader, {color: color})), 
-                React.createElement("div", {style: style}, React.createElement(Halogen.FadeLoader, {color: color})), 
-                React.createElement("div", {style: style}, React.createElement(Halogen.PacmanLoader, {color: color})), 
-                React.createElement("div", {style: style}, React.createElement(Halogen.SquareLoader, {color: color})), 
-                React.createElement("div", {style: style}, React.createElement(Halogen.ScaleLoader, {color: color})), 
-                React.createElement("div", {style: style}, React.createElement(Halogen.SkewLoader, {color: color})), 
-                React.createElement("div", {style: style}, React.createElement(Halogen.MoonLoader, {color: color})), 
-                React.createElement("div", {style: style}, React.createElement(Halogen.RingLoader, {color: color})), 
-                React.createElement("div", {style: style}, React.createElement(Halogen.BounceLoader, {color: color})), 
-                React.createElement("div", {style: style}, React.createElement(Halogen.DotLoader, {color: color}))
-            )
-        );
-    }
+  render: function() {
+    return (
+      React.createElement(Loader, {color: "#26A65B", size: "100%"})
+    );
+  }
 });
 
 var Window = React.createClass({displayName: "Window",
@@ -74,21 +22,19 @@ var Window = React.createClass({displayName: "Window",
     var renderWindow = function(state) {
       if(state == "default") {
         return (
-          React.createElement("textarea", {id: "textArea", disabled: true, readOnly: true}, 
-            "default"
-          )
+          React.createElement("div", null)
         );
       } else {
         return (
-          React.createElement("textarea", {id: "textArea", disabled: true, readOnly: true}, 
-            "initial"
+          React.createElement("div", {id: "center"}, 
+            React.createElement(Example, {id: "loader"})
           )
         );
       }
     };
 
     return (
-      React.createElement("div", null)
+      renderWindow(this.state.display)
     );
   }
 });
@@ -195,6 +141,6 @@ var UI = React.createClass({displayName: "UI",
 });
 
 React.render(
-  React.createElement(Example, null),
+  React.createElement(UI, null),
   document.getElementById('content')
 );

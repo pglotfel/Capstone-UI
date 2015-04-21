@@ -1,66 +1,14 @@
 
 
-var Halogen = require('halogen');
+var Loader = require('halogen/BounceLoader');
+var React = require('react');
 
 var Example = React.createClass({
-
-    render: function() {
-
-        // try change me to a custom color like "red" or "#000000"
-        var color = '#4DAF7C';
-
-        var style = {
-            display: '-webkit-flex',
-            display: 'flex',
-            webkitFlex: '0 1 auto',
-            flex: '0 1 auto',
-            webkitFlexDirection: 'column',
-            flexDirection: 'column',
-            webkitFlexGrow: 1,
-            flexGrow: 1,
-            webkitFlexShrink: 0,
-            flexShrink: 0,
-            webkitFlexBasis: '25%',
-            flexBasis: '25%',
-            maxWidth: '25%',
-            height: '200px',
-            webkitAlignItems: 'center',
-            alignItems: 'center',
-            webkitJustifyContent: 'center',
-            justifyContent: 'center'
-        };
-
-        return (
-            <div style={{
-                boxSizing: 'border-box',
-                display: '-webkit-flex',
-                display: 'flex',
-                webkitFlex: '0 1 auto',
-                flex: '0 1 auto',
-                webkitFlexDirection: 'row',
-                flexDirection: 'row',
-                webkitFlexWrap: 'wrap',
-                flexWrap: 'wrap'
-            }}>
-                <div style={style}><Halogen.PulseLoader color={color}/></div>
-                <div style={style}><Halogen.GridLoader color={color}/></div>
-                <div style={style}><Halogen.ClipLoader color={color}/></div>
-                <div style={style}><Halogen.RiseLoader color={color}/></div>
-                <div style={style}><Halogen.BeatLoader color={color}/></div>
-                <div style={style}><Halogen.SyncLoader color={color}/></div>
-                <div style={style}><Halogen.RotateLoader color={color}/></div>
-                <div style={style}><Halogen.FadeLoader color={color}/></div>
-                <div style={style}><Halogen.PacmanLoader color={color}/></div>
-                <div style={style}><Halogen.SquareLoader color={color}/></div>
-                <div style={style}><Halogen.ScaleLoader color={color}/></div>
-                <div style={style}><Halogen.SkewLoader color={color}/></div>
-                <div style={style}><Halogen.MoonLoader color={color}/></div>
-                <div style={style}><Halogen.RingLoader color={color}/></div>
-                <div style={style}><Halogen.BounceLoader color={color}/></div>
-                <div style={style}><Halogen.DotLoader color={color}/></div>
-            </div>
-        );
-    }
+  render: function() {
+    return (
+      <Loader color="#26A65B" size = "100%"/>
+    );
+  }
 });
 
 var Window = React.createClass({
@@ -74,21 +22,19 @@ var Window = React.createClass({
     var renderWindow = function(state) {
       if(state == "default") {
         return (
-          <textarea id="textArea" disabled readOnly>
-            {"default"}
-          </textarea>
+          <div />
         );
       } else {
         return (
-          <textarea id="textArea" disabled readOnly>
-            {"initial"}
-          </textarea>
+          <div id="center">
+            <Example id="loader"/>
+          </div>
         );
       }
     };
 
     return (
-      <div />
+      renderWindow(this.state.display)
     );
   }
 });
@@ -195,6 +141,6 @@ var UI = React.createClass({
 });
 
 React.render(
-  <Example />,
+  <UI />,
   document.getElementById('content')
 );
