@@ -1,0 +1,13 @@
+{
+  "name": "Capstone-UI",
+  "version": "0.0.1",
+  "description": "UI for Capstone!",
+  "dependencies": {
+    "express": "^4.12.3",
+    "halogen": "^0.1.8",
+    "react": "^0.13.2",
+    "reactify": "^1.1.0",
+    "socket.io": "^1.3.5",
+    "ws": "^0.7.1"
+  }
+}

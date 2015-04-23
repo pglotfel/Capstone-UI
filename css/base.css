@@ -8,7 +8,7 @@ body {
 }
 
 div#content {
-  background: #33FFCC;
+  background: #0dcecb;
   width: 100%;
   height: 100%;
 }
@@ -52,7 +52,18 @@ div#center{
   margin-left: auto;
   width: 8em;
   height: 8em;
-  /*background: #FFFF00;*/
+  font-family: "Arial", Consolas, Courier, monospace;
+  font-size: 14px;
+}
+
+div#text{
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 1em;
+  width: 8em;
+  height: 8em;
+  font-family: "Arial", Consolas, Courier, monospace;
+  font-size: 14px;
 }
 
 form {
@@ -67,9 +78,11 @@ button {
   width: 100%;
   height: 100%;
   color: #000000;
-  background: #66CC99;
-  border: 2px solid #669966;
+  background: #5dceFA;
+  border: 2px solid #5dceFA;
   border-radius: 10px;
+  font-family: "Arial", Consolas, Courier, monospace;
+  font-size: 14px;
 }
 
 textarea {

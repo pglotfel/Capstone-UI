@@ -1,12 +1,18 @@
 
-
 var Loader = require('halogen/BounceLoader');
 var React = require('react');
+var WebSocket = require('ws');
+
+var exampleSocket = new WebSocket("ws://localhost:8080");
+
+exampleSocket.onopen = function (event) {
+  exampleSocket.send("Here's some text that the server is urgently awaiting!");
+};
 
 var Example = React.createClass({
   render: function() {
     return (
-      <Loader color="#26A65B" size = "100%"/>
+      <Loader color="#AdceFA" size = "100%"/>
     );
   }
 });
@@ -14,27 +20,54 @@ var Example = React.createClass({
 var Window = React.createClass({
 
   getInitialState: function() {
-    return {display: "initial"};
+
+    return {data: "loading"};
   },
 
-  render : function() {
+  altSetState: function(data) {
+    this.setState({data: data});
+  },
 
-    var renderWindow = function(state) {
-      if(state == "default") {
-        return (
-          <div />
-        );
-      } else {
+  componentDidMount: function() {
+
+    exampleSocket.onmessage = function (event) {
+      try{
+        this.altSetState(event.data);
+        window.alert(event.data);
+      } catch(err) {
+        window.alert(err);
+      }
+    }.bind(this);
+  },
+
+  renderWindow: function(state) {
+
+    switch(state) {
+
+      case "loading":
         return (
           <div id="center">
             <Example id="loader"/>
+            <div id="text">
+              {<center>Retrieving Bike</center>}
+            </div>
           </div>
         );
-      }
-    };
+      break;
+
+      default:
+        return (
+          <div id="center"/>
+        );
+    }
+  },
+
+  render: function() {
+
+    window.alert('rendering');
 
     return (
-      renderWindow(this.state.display)
+      this.renderWindow(this.state.data)
     );
   }
 });

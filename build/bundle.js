@@ -60,14 +60,20 @@ process.umask = function() { return 0; };
 
 },{}],2:[function(require,module,exports){
 
-
 var Loader = require('halogen/BounceLoader');
 var React = require('react');
+var WebSocket = require('ws');
+
+var exampleSocket = new WebSocket("ws://localhost:8080");
+
+exampleSocket.onopen = function (event) {
+  exampleSocket.send("Here's some text that the server is urgently awaiting!");
+};
 
 var Example = React.createClass({displayName: "Example",
   render: function() {
     return (
-      React.createElement(Loader, {color: "#26A65B", size: "100%"})
+      React.createElement(Loader, {color: "#AdceFA", size: "100%"})
     );
   }
 });
@@ -75,27 +81,54 @@ var Example = React.createClass({displayName: "Example",
 var Window = React.createClass({displayName: "Window",
 
   getInitialState: function() {
-    return {display: "initial"};
+
+    return {data: "loading"};
   },
 
-  render : function() {
+  altSetState: function(data) {
+    this.setState({data: data});
+  },
 
-    var renderWindow = function(state) {
-      if(state == "default") {
-        return (
-          React.createElement("div", null)
-        );
-      } else {
+  componentDidMount: function() {
+
+    exampleSocket.onmessage = function (event) {
+      try{
+        this.altSetState(event.data);
+        window.alert(event.data);
+      } catch(err) {
+        window.alert(err);
+      }
+    }.bind(this);
+  },
+
+  renderWindow: function(state) {
+
+    switch(state) {
+
+      case "loading":
         return (
           React.createElement("div", {id: "center"}, 
-            React.createElement(Example, {id: "loader"})
+            React.createElement(Example, {id: "loader"}), 
+            React.createElement("div", {id: "text"}, 
+              React.createElement("center", null, "Retrieving Bike")
+            )
           )
         );
-      }
-    };
+      break;
+
+      default:
+        return (
+          React.createElement("div", {id: "center"})
+        );
+    }
+  },
+
+  render: function() {
+
+    window.alert('rendering');
 
     return (
-      renderWindow(this.state.display)
+      this.renderWindow(this.state.data)
     );
   }
 });
@@ -206,7 +239,7 @@ React.render(
   document.getElementById('content')
 );
 
-},{"halogen/BounceLoader":3,"react":163}],3:[function(require,module,exports){
+},{"halogen/BounceLoader":3,"react":163,"ws":164}],3:[function(require,module,exports){
 var React = require('react');
 var assign = require('react-kit/appendVendorPrefix');
 var insertKeyframesRule = require('react-kit/insertKeyframesRule');
@@ -20089,4 +20122,49 @@ module.exports = warning;
 },{"./emptyFunction":122,"_process":1}],163:[function(require,module,exports){
 module.exports = require('./lib/React');
 
-},{"./lib/React":36}]},{},[2]);
+},{"./lib/React":36}],164:[function(require,module,exports){
+
+/**
+ * Module dependencies.
+ */
+
+var global = (function() { return this; })();
+
+/**
+ * WebSocket constructor.
+ */
+
+var WebSocket = global.WebSocket || global.MozWebSocket;
+
+/**
+ * Module exports.
+ */
+
+module.exports = WebSocket ? ws : null;
+
+/**
+ * WebSocket constructor.
+ *
+ * The third `opts` options object gets ignored in web browsers, since it's
+ * non-standard, and throws a TypeError if passed to the constructor.
+ * See: https://github.com/einaros/ws/issues/227
+ *
+ * @param {String} uri
+ * @param {Array} protocols (optional)
+ * @param {Object) opts (optional)
+ * @api public
+ */
+
+function ws(uri, protocols, opts) {
+  var instance;
+  if (protocols) {
+    instance = new WebSocket(uri, protocols);
+  } else {
+    instance = new WebSocket(uri);
+  }
+  return instance;
+}
+
+if (WebSocket) ws.prototype = WebSocket.prototype;
+
+},{}]},{},[2]);

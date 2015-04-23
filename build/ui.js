@@ -1,12 +1,18 @@
 
-
 var Loader = require('halogen/BounceLoader');
 var React = require('react');
+var WebSocket = require('ws');
+
+var exampleSocket = new WebSocket("ws://localhost:8080");
+
+exampleSocket.onopen = function (event) {
+  exampleSocket.send("Here's some text that the server is urgently awaiting!");
+};
 
 var Example = React.createClass({displayName: "Example",
   render: function() {
     return (
-      React.createElement(Loader, {color: "#26A65B", size: "100%"})
+      React.createElement(Loader, {color: "#AdceFA", size: "100%"})
     );
   }
 });
@@ -14,27 +20,54 @@ var Example = React.createClass({displayName: "Example",
 var Window = React.createClass({displayName: "Window",
 
   getInitialState: function() {
-    return {display: "initial"};
+
+    return {data: "loading"};
   },
 
-  render : function() {
+  altSetState: function(data) {
+    this.setState({data: data});
+  },
 
-    var renderWindow = function(state) {
-      if(state == "default") {
-        return (
-          React.createElement("div", null)
-        );
-      } else {
+  componentDidMount: function() {
+
+    exampleSocket.onmessage = function (event) {
+      try{
+        this.altSetState(event.data);
+        window.alert(event.data);
+      } catch(err) {
+        window.alert(err);
+      }
+    }.bind(this);
+  },
+
+  renderWindow: function(state) {
+
+    switch(state) {
+
+      case "loading":
         return (
           React.createElement("div", {id: "center"}, 
-            React.createElement(Example, {id: "loader"})
+            React.createElement(Example, {id: "loader"}), 
+            React.createElement("div", {id: "text"}, 
+              React.createElement("center", null, "Retrieving Bike")
+            )
           )
         );
-      }
-    };
+      break;
+
+      default:
+        return (
+          React.createElement("div", {id: "center"})
+        );
+    }
+  },
+
+  render: function() {
+
+    window.alert('rendering');
 
     return (
-      renderWindow(this.state.display)
+      this.renderWindow(this.state.data)
     );
   }
 });
