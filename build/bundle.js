@@ -92,12 +92,7 @@ var Window = React.createClass({displayName: "Window",
   componentDidMount: function() {
 
     exampleSocket.onmessage = function (event) {
-      try{
-        this.altSetState(event.data);
-        window.alert(event.data);
-      } catch(err) {
-        window.alert(err);
-      }
+      this.altSetState(event.data);
     }.bind(this);
   },
 
@@ -124,8 +119,6 @@ var Window = React.createClass({displayName: "Window",
   },
 
   render: function() {
-
-    window.alert('rendering');
 
     return (
       this.renderWindow(this.state.data)
