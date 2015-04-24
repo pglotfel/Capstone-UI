@@ -1,5 +1,5 @@
 
-var Loader = require('halogen/BounceLoader');
+var Loader = require('halogen/SyncLoader');
 var React = require('react');
 var WebSocket = require('ws');
 
@@ -12,7 +12,7 @@ exampleSocket.onopen = function (event) {
 var Example = React.createClass({
   render: function() {
     return (
-      <Loader color="#AdceFA" size = "100%"/>
+      <center> <Loader color="#27ae60" size="20px" /> </center>
     );
   }
 });
@@ -21,7 +21,7 @@ var Window = React.createClass({
 
   getInitialState: function() {
 
-    return {data: "loading"};
+    return {data: "bike0"};
   },
 
   altSetState: function(data) {
@@ -45,6 +45,16 @@ var Window = React.createClass({
             <Example id="loader"/>
             <div id="text">
               {<center>Retrieving Bike</center>}
+            </div>
+          </div>
+        );
+      break;
+
+      case "bike0":
+        return (
+          <div id="center">
+            <div id="text">
+              {<center>Your bike is in station 1!</center>}
             </div>
           </div>
         );

@@ -1,5 +1,5 @@
 
-var Loader = require('halogen/BounceLoader');
+var Loader = require('halogen/SyncLoader');
 var React = require('react');
 var WebSocket = require('ws');
 
@@ -12,7 +12,7 @@ exampleSocket.onopen = function (event) {
 var Example = React.createClass({displayName: "Example",
   render: function() {
     return (
-      React.createElement(Loader, {color: "#AdceFA", size: "100%"})
+      React.createElement("center", null, " ", React.createElement(Loader, {color: "#27ae60", size: "20px"}), " ")
     );
   }
 });
@@ -21,7 +21,7 @@ var Window = React.createClass({displayName: "Window",
 
   getInitialState: function() {
 
-    return {data: "loading"};
+    return {data: "bike0"};
   },
 
   altSetState: function(data) {
@@ -45,6 +45,16 @@ var Window = React.createClass({displayName: "Window",
             React.createElement(Example, {id: "loader"}), 
             React.createElement("div", {id: "text"}, 
               React.createElement("center", null, "Retrieving Bike")
+            )
+          )
+        );
+      break;
+
+      case "bike0":
+        return (
+          React.createElement("div", {id: "center"}, 
+            React.createElement("div", {id: "text"}, 
+              React.createElement("center", null, "Your bike is in station 1!")
             )
           )
         );

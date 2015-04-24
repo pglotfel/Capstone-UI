@@ -60,7 +60,7 @@ process.umask = function() { return 0; };
 
 },{}],2:[function(require,module,exports){
 
-var Loader = require('halogen/BounceLoader');
+var Loader = require('halogen/SyncLoader');
 var React = require('react');
 var WebSocket = require('ws');
 
@@ -73,7 +73,7 @@ exampleSocket.onopen = function (event) {
 var Example = React.createClass({displayName: "Example",
   render: function() {
     return (
-      React.createElement(Loader, {color: "#AdceFA", size: "100%"})
+      React.createElement("center", null, " ", React.createElement(Loader, {color: "#27ae60", size: "20px"}), " ")
     );
   }
 });
@@ -82,7 +82,7 @@ var Window = React.createClass({displayName: "Window",
 
   getInitialState: function() {
 
-    return {data: "loading"};
+    return {data: "bike0"};
   },
 
   altSetState: function(data) {
@@ -106,6 +106,16 @@ var Window = React.createClass({displayName: "Window",
             React.createElement(Example, {id: "loader"}), 
             React.createElement("div", {id: "text"}, 
               React.createElement("center", null, "Retrieving Bike")
+            )
+          )
+        );
+      break;
+
+      case "bike0":
+        return (
+          React.createElement("div", {id: "center"}, 
+            React.createElement("div", {id: "text"}, 
+              React.createElement("center", null, "Your bike is in station 1!")
             )
           )
         );
@@ -232,31 +242,37 @@ React.render(
   document.getElementById('content')
 );
 
-},{"halogen/BounceLoader":3,"react":163,"ws":164}],3:[function(require,module,exports){
+},{"halogen/SyncLoader":3,"react":163,"ws":164}],3:[function(require,module,exports){
 var React = require('react');
 var assign = require('react-kit/appendVendorPrefix');
 var insertKeyframesRule = require('react-kit/insertKeyframesRule');
 
 var keyframes = {
-    '0%, 100%': {
-        transform: 'scale(0)'
+    '33%': {
+        transform: 'translateY(10px)'
     },
-    '50%': {
-        transform: 'scale(1.0)'
+    '66%': {
+        transform: 'translateY(-10px)'
+    },
+    '100%': {
+        transform: 'translateY(0)'
     }
 };
+
 
 var animationName = insertKeyframesRule(keyframes);
 
 var Loader = React.createClass({displayName: "Loader",
     propTypes: {
         color: React.PropTypes.string,
-        size: React.PropTypes.string
+        size: React.PropTypes.string,
+        margin: React.PropTypes.string
     },
     getDefaultProps: function(){
         return {
             color: '#ffffff',
-            size: '60px'
+            size: '15px',
+            margin: '2px'
         };
     },
     getBallStyle: function () {
@@ -264,16 +280,12 @@ var Loader = React.createClass({displayName: "Loader",
             backgroundColor: this.props.color,
             width: this.props.size,
             height: this.props.size,
-            borderRadius: '100%',
-            opacity: 0.6,
-            position: 'absolute',
-            top: 0,
-            left: 0
+            margin: this.props.margin,
+            borderRadius: '100%'
         }
     },
     getAnimationStyle: function (i) {
-
-        var animation = [animationName, '2s', i==1? '1s': '0s', 'infinite', 'ease-in-out'].join(' ');
+        var animation = [animationName, '0.6s', (i * 0.07) + 's', 'infinite', 'ease-in-out'].join(' ');
         var animationFillMode = 'both';
         return {
             animation: animation,
@@ -282,28 +294,21 @@ var Loader = React.createClass({displayName: "Loader",
     },
     getStyle: function (i) {
 
-        if(i){
-            return assign(
-                this.getBallStyle(i),
-                this.getAnimationStyle(i)
-            )
-        }
-
         return assign(
+            this.getBallStyle(i),
+            this.getAnimationStyle(i),
             {
-                width: this.props.size,
-                height: this.props.size,
-                position: 'relative'
+                display: 'inline-block'
             }
         )
     },
     render: function () {
 
-        return (
-            React.createElement("div", {style: this.getStyle()}, 
-                React.createElement("div", {style: this.getStyle(1)}), 
-                React.createElement("div", {style: this.getStyle(2)})
-            ));
+        return (React.createElement("div", null, 
+            React.createElement("div", {style: this.getStyle(1)}), 
+            React.createElement("div", {style: this.getStyle(2)}), 
+            React.createElement("div", {style: this.getStyle(3)})
+        ));
     }
 });
 

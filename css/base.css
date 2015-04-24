@@ -8,7 +8,7 @@ body {
 }
 
 div#content {
-  background: #0dcecb;
+  background: #ecf0f1;
   width: 100%;
   height: 100%;
 }
@@ -50,6 +50,7 @@ td#center {
 div#center{
   margin-right: auto;
   margin-left: auto;
+  margin-top: 1em;
   width: 8em;
   height: 8em;
   font-family: "Arial", Consolas, Courier, monospace;
@@ -78,8 +79,8 @@ button {
   width: 100%;
   height: 100%;
   color: #000000;
-  background: #5dceFA;
-  border: 2px solid #5dceFA;
+  background: #27ae60;
+  border: 2px solid #38ae60;
   border-radius: 10px;
   font-family: "Arial", Consolas, Courier, monospace;
   font-size: 14px;
