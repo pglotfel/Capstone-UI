@@ -21,7 +21,7 @@ var Window = React.createClass({
 
   getInitialState: function() {
 
-    return {data: "loading"};
+    return {data: "default"};
   },
 
   altSetState: function(data) {
@@ -75,6 +75,11 @@ var Window = React.createClass({
           <div id="center"/>
         );
 	break;
+
+     default:
+        return (
+          <div id="center"/>
+        );
     }
   },
 
