@@ -1,6 +1,8 @@
 var WebSocketServer = require('ws').Server
   , wss = new WebSocketServer({ port: 8080 });
 
+var spawn = require('child_process').spawn;
+
 var net = require('net');
 
 var clients = [];
@@ -36,7 +38,7 @@ net.createServer(function (socket) {
             console.log(string);
             clients[0].send(string);
         } catch (err) {
-        
+
         }
         chunk = chunk.substring(d_index+1); // Cuts off the processed chunk
         d_index = chunk.indexOf(';'); // Find the new delimiter

@@ -21,7 +21,7 @@ var Window = React.createClass({displayName: "Window",
 
   getInitialState: function() {
 
-    return {data: "bike0"};
+    return {data: "loading"};
   },
 
   altSetState: function(data) {

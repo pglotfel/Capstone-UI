@@ -21,7 +21,7 @@ var Window = React.createClass({
 
   getInitialState: function() {
 
-    return {data: "bike0"};
+    return {data: "loading"};
   },
 
   altSetState: function(data) {
@@ -55,6 +55,16 @@ var Window = React.createClass({
           <div id="center">
             <div id="text">
               {<center>Your bike is in station 1!</center>}
+            </div>
+          </div>
+        );
+      break;
+
+      case "nobikes":
+        return (
+          <div id="center">
+            <div id="text">
+              {<center>Sorry, there are no bikes available</center>}
             </div>
           </div>
         );
