@@ -70,10 +70,11 @@ var Window = React.createClass({
         );
       break;
 
-      default:
+      case "default":
         return (
           <div id="center"/>
         );
+	break;
     }
   },
 

@@ -60,10 +60,21 @@ var Window = React.createClass({displayName: "Window",
         );
       break;
 
-      default:
+      case "nobikes":
+        return (
+          React.createElement("div", {id: "center"}, 
+            React.createElement("div", {id: "text"}, 
+              React.createElement("center", null, "Sorry, there are no bikes available")
+            )
+          )
+        );
+      break;
+
+      case "default":
         return (
           React.createElement("div", {id: "center"})
         );
+	break;
     }
   },
 
