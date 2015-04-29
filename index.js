@@ -5,16 +5,14 @@ var spawn = require('child_process').spawn;
 
 var net = require('net');
 
-var clients = [];
+var clients = [1];
 
 wss.on('connection', function connection(ws) {
-  ws.on('message', function incoming(message) {
-    console.log('received: %s', message);
-  });
+  console.log('UI client connected');
 
   ws.send('default');
 
-  clients.push(ws);
+  clients[0] = ws;
 });
 
 console.log('WSS started on 8080');
@@ -35,8 +33,9 @@ net.createServer(function (socket) {
     while (d_index > -1) {
         try {
             string = chunk.substring(0,d_index); // Create string up until the delimiter
-            console.log(string);
-            clients[0].send(string);
+            if(clients[0] != 1) {
+              clients[0].send(string);
+            }
         } catch (err) {
 
         }

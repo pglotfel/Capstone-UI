@@ -6,7 +6,7 @@ var WebSocket = require('ws');
 var exampleSocket = new WebSocket("ws://localhost:8080");
 
 exampleSocket.onopen = function (event) {
-  exampleSocket.send("Here's some text that the server is urgently awaiting!");
+  exampleSocket.send("UI Connected");
 };
 
 var Example = React.createClass({
@@ -41,44 +41,274 @@ var Window = React.createClass({
 
       case "loading":
         return (
-          <div id="center">
-            <Example id="loader"/>
-            <div id="text">
-              {<center>Retrieving Bike</center>}
-            </div>
-          </div>
+          <div>
+           <table>
+             <tr>
+               <td id="left">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+               <td>
+               </td>
+               <td id="right">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+             </tr>
+             <tr>
+               <td id="left">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+               <td id="center">
+                 <div id="center">
+                   <Example id="loader"/>
+                   <div id="text">
+                     {<center>Retrieving Bike</center>}
+                   </div>
+                 </div>
+               </td>
+               <td id="right">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+             </tr>
+             <tr>
+               <td id="left">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+               <td>
+               </td>
+               <td id="right">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+             </tr>
+           </table>
+         </div>
         );
       break;
 
       case "bike0":
         return (
-          <div id="center">
-            <div id="text">
-              {<center>Your bike is in station 1!</center>}
-            </div>
-          </div>
+          <div>
+           <table>
+             <tr>
+               <td id="left">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+               <td>
+               </td>
+               <td id="right">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+             </tr>
+             <tr>
+               <td id="left">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+               <td id="center">
+                 <div id="center">
+                   <div id="text">
+                     {<center>Your bike is in station 1!</center>}
+                   </div>
+                 </div>
+               </td>
+               <td id="right">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+             </tr>
+             <tr>
+               <td id="left">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+               <td>
+               </td>
+               <td id="right">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+             </tr>
+           </table>
+         </div>
         );
       break;
 
       case "nobikes":
         return (
-          <div id="center">
-            <div id="text">
-              {<center>Sorry, there are no bikes available</center>}
-            </div>
-          </div>
+          <div>
+           <table>
+             <tr>
+               <td id="left">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+               <td>
+               </td>
+               <td id="right">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+             </tr>
+             <tr>
+               <td id="left">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+               <td id="center">
+                 <div id="center">
+                   <div id="text">
+                     {<center>Sorry, there are no bikes available</center>}
+                   </div>
+                 </div>
+               </td>
+               <td id="right">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+             </tr>
+             <tr>
+               <td id="left">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+               <td>
+               </td>
+               <td id="right">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+             </tr>
+           </table>
+         </div>
         );
       break;
 
       case "default":
         return (
-          <div id="center"/>
+          <div>
+           <table>
+             <tr>
+               <td id="left">
+                 <form>
+                   <button>{'Rent a Bike'}</button>
+                 </form>
+               </td>
+               <td>
+               </td>
+               <td id="right">
+                 <form>
+                   <button>{'Information'}</button>
+                 </form>
+               </td>
+             </tr>
+             <tr>
+               <td id="left">
+                 <form>
+                   <button>{'Charge a Card'}</button>
+                 </form>
+               </td>
+               <td id="center">
+                 <div id="center"/>
+               </td>
+               <td id="right">
+                 <form>
+                   <button>{'Get a Card'}</button>
+                 </form>
+               </td>
+             </tr>
+             <tr>
+               <td id="left">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+               <td>
+               </td>
+               <td id="right">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+             </tr>
+           </table>
+         </div>
         );
-	break;
+	       break;
 
      default:
         return (
-          <div id="center"/>
+          <div>
+           <table>
+             <tr>
+               <td id="left">
+                 <form>
+                   <button>{'Rent a Bike'}</button>
+                 </form>
+               </td>
+               <td>
+               </td>
+               <td id="right">
+                 <form>
+                   <button>{'Information'}</button>
+                 </form>
+               </td>
+             </tr>
+             <tr>
+               <td id="left">
+                 <form>
+                   <button>{'Charge a Card'}</button>
+                 </form>
+               </td>
+               <td id="center">
+                 <div id="center"/>
+               </td>
+               <td id="right">
+                 <form>
+                   <button>{'Get a Card'}</button>
+                 </form>
+               </td>
+             </tr>
+             <tr>
+               <td id="left">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+               <td>
+               </td>
+               <td id="right">
+                 <form>
+                   <button>{''}</button>
+                 </form>
+               </td>
+             </tr>
+           </table>
+         </div>
         );
     }
   },
@@ -193,6 +423,6 @@ var UI = React.createClass({
 });
 
 React.render(
-  <UI />,
+  <Window />,
   document.getElementById('content')
 );

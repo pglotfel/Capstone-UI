@@ -6,7 +6,7 @@ var WebSocket = require('ws');
 var exampleSocket = new WebSocket("ws://localhost:8080");
 
 exampleSocket.onopen = function (event) {
-  exampleSocket.send("Here's some text that the server is urgently awaiting!");
+  exampleSocket.send("UI Connected");
 };
 
 var Example = React.createClass({displayName: "Example",
@@ -41,44 +41,274 @@ var Window = React.createClass({displayName: "Window",
 
       case "loading":
         return (
-          React.createElement("div", {id: "center"}, 
-            React.createElement(Example, {id: "loader"}), 
-            React.createElement("div", {id: "text"}, 
-              React.createElement("center", null, "Retrieving Bike")
-            )
-          )
+          React.createElement("div", null, 
+           React.createElement("table", null, 
+             React.createElement("tr", null, 
+               React.createElement("td", {id: "left"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               ), 
+               React.createElement("td", null
+               ), 
+               React.createElement("td", {id: "right"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               )
+             ), 
+             React.createElement("tr", null, 
+               React.createElement("td", {id: "left"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               ), 
+               React.createElement("td", {id: "center"}, 
+                 React.createElement("div", {id: "center"}, 
+                   React.createElement(Example, {id: "loader"}), 
+                   React.createElement("div", {id: "text"}, 
+                     React.createElement("center", null, "Retrieving Bike")
+                   )
+                 )
+               ), 
+               React.createElement("td", {id: "right"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               )
+             ), 
+             React.createElement("tr", null, 
+               React.createElement("td", {id: "left"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               ), 
+               React.createElement("td", null
+               ), 
+               React.createElement("td", {id: "right"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               )
+             )
+           )
+         )
         );
       break;
 
       case "bike0":
         return (
-          React.createElement("div", {id: "center"}, 
-            React.createElement("div", {id: "text"}, 
-              React.createElement("center", null, "Your bike is in station 1!")
-            )
-          )
+          React.createElement("div", null, 
+           React.createElement("table", null, 
+             React.createElement("tr", null, 
+               React.createElement("td", {id: "left"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               ), 
+               React.createElement("td", null
+               ), 
+               React.createElement("td", {id: "right"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               )
+             ), 
+             React.createElement("tr", null, 
+               React.createElement("td", {id: "left"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               ), 
+               React.createElement("td", {id: "center"}, 
+                 React.createElement("div", {id: "center"}, 
+                   React.createElement("div", {id: "text"}, 
+                     React.createElement("center", null, "Your bike is in station 1!")
+                   )
+                 )
+               ), 
+               React.createElement("td", {id: "right"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               )
+             ), 
+             React.createElement("tr", null, 
+               React.createElement("td", {id: "left"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               ), 
+               React.createElement("td", null
+               ), 
+               React.createElement("td", {id: "right"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               )
+             )
+           )
+         )
         );
       break;
 
       case "nobikes":
         return (
-          React.createElement("div", {id: "center"}, 
-            React.createElement("div", {id: "text"}, 
-              React.createElement("center", null, "Sorry, there are no bikes available")
-            )
-          )
+          React.createElement("div", null, 
+           React.createElement("table", null, 
+             React.createElement("tr", null, 
+               React.createElement("td", {id: "left"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               ), 
+               React.createElement("td", null
+               ), 
+               React.createElement("td", {id: "right"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               )
+             ), 
+             React.createElement("tr", null, 
+               React.createElement("td", {id: "left"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               ), 
+               React.createElement("td", {id: "center"}, 
+                 React.createElement("div", {id: "center"}, 
+                   React.createElement("div", {id: "text"}, 
+                     React.createElement("center", null, "Sorry, there are no bikes available")
+                   )
+                 )
+               ), 
+               React.createElement("td", {id: "right"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               )
+             ), 
+             React.createElement("tr", null, 
+               React.createElement("td", {id: "left"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               ), 
+               React.createElement("td", null
+               ), 
+               React.createElement("td", {id: "right"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               )
+             )
+           )
+         )
         );
       break;
 
       case "default":
         return (
-          React.createElement("div", {id: "center"})
+          React.createElement("div", null, 
+           React.createElement("table", null, 
+             React.createElement("tr", null, 
+               React.createElement("td", {id: "left"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, 'Rent a Bike')
+                 )
+               ), 
+               React.createElement("td", null
+               ), 
+               React.createElement("td", {id: "right"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, 'Information')
+                 )
+               )
+             ), 
+             React.createElement("tr", null, 
+               React.createElement("td", {id: "left"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, 'Charge a Card')
+                 )
+               ), 
+               React.createElement("td", {id: "center"}, 
+                 React.createElement("div", {id: "center"})
+               ), 
+               React.createElement("td", {id: "right"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, 'Get a Card')
+                 )
+               )
+             ), 
+             React.createElement("tr", null, 
+               React.createElement("td", {id: "left"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               ), 
+               React.createElement("td", null
+               ), 
+               React.createElement("td", {id: "right"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               )
+             )
+           )
+         )
         );
-	break;
+	       break;
 
      default:
         return (
-          React.createElement("div", {id: "center"})
+          React.createElement("div", null, 
+           React.createElement("table", null, 
+             React.createElement("tr", null, 
+               React.createElement("td", {id: "left"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, 'Rent a Bike')
+                 )
+               ), 
+               React.createElement("td", null
+               ), 
+               React.createElement("td", {id: "right"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, 'Information')
+                 )
+               )
+             ), 
+             React.createElement("tr", null, 
+               React.createElement("td", {id: "left"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, 'Charge a Card')
+                 )
+               ), 
+               React.createElement("td", {id: "center"}, 
+                 React.createElement("div", {id: "center"})
+               ), 
+               React.createElement("td", {id: "right"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, 'Get a Card')
+                 )
+               )
+             ), 
+             React.createElement("tr", null, 
+               React.createElement("td", {id: "left"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               ), 
+               React.createElement("td", null
+               ), 
+               React.createElement("td", {id: "right"}, 
+                 React.createElement("form", null, 
+                   React.createElement("button", null, '')
+                 )
+               )
+             )
+           )
+         )
         );
     }
   },
@@ -193,6 +423,6 @@ var UI = React.createClass({displayName: "UI",
 });
 
 React.render(
-  React.createElement(UI, null),
+  React.createElement(Window, null),
   document.getElementById('content')
 );
