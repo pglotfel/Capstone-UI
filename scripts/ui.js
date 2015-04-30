@@ -21,7 +21,7 @@ var Window = React.createClass({
 
   getInitialState: function() {
 
-    return {data: "default"};
+    return {data: "loading"};
   },
 
   altSetState: function(data) {
@@ -67,7 +67,7 @@ var Window = React.createClass({
                  <div id="center">
                    <Example id="loader"/>
                    <div id="text">
-                     {<center>Retrieving Bike</center>}
+                     {'Retrieving Bike'}
                    </div>
                  </div>
                </td>

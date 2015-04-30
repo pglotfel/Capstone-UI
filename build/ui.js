@@ -21,7 +21,7 @@ var Window = React.createClass({displayName: "Window",
 
   getInitialState: function() {
 
-    return {data: "default"};
+    return {data: "loading"};
   },
 
   altSetState: function(data) {
@@ -67,7 +67,7 @@ var Window = React.createClass({displayName: "Window",
                  React.createElement("div", {id: "center"}, 
                    React.createElement(Example, {id: "loader"}), 
                    React.createElement("div", {id: "text"}, 
-                     React.createElement("center", null, "Retrieving Bike")
+                     'Retrieving Bike'
                    )
                  )
                ), 
